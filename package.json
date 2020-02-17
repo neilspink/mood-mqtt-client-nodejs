@@ -1,0 +1,22 @@
+{
+  "name": "mood-mqtt-client-nodejs",
+  "version": "1.0.0",
+  "description": "Node.js communicating with MQTT protocol",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neilspink/mood-mqtt-client-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neilspink/mood-mqtt-client-nodejs/issues"
+  },
+  "homepage": "https://github.com/neilspink/mood-mqtt-client-nodejs#readme",
+  "dependencies": {
+    "mqtt": "^3.0.0"
+  }
+}
