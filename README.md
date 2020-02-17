@@ -1,4 +1,4 @@
-# Node.js controlling mood baramoter via MQTT
+# Node.js controlling mood barometer via MQTT
 
 This project sends and receives commands to an [MQTT broker](http://mqtt.org/). 
 
