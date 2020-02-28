@@ -1,27 +1,31 @@
 const mqtt = require('mqtt')
 
+const topicVote = 'test/vote';
+const topicMoodometer = 'test/moodometer';
+const topicMood = 'test/mood';
+
 const options = {
     port: 1883,
-    host: 'mqtt://grizzly.tec2020.fun',
+    host: 'mqtt://broker.tec2020.fun',
     clientId: 'nodejs_control',
     username: 'sammy',
     password: '1234'
 };
-const client = mqtt.connect('mqtt://grizzly.tec2020.fun', options);
+const client = mqtt.connect('mqtt://broker.tec2020.fun', options);
 
 let currentMood = 3;
 
 client.on('connect', () => {
-    client.subscribe('team1/vote')
-    client.subscribe('team1/moodometer')
+    client.subscribe(topicVote)
+    client.subscribe(topicMoodometer)
   })
 
   client.on('message', (topic, message) => {
     console.log('received message %s %s', topic, message)
     switch (topic) {
-      case 'team1/vote':
+      case topicVote:
         return handleVote(message)
-      case 'team1/moodometer':
+      case topicMoodometer:
         return handleMoodometer(message)
     }
   })
@@ -46,7 +50,7 @@ client.on('connect', () => {
       }
 
       console.log('updating mood to %s', currentMood.toString())
-      client.publish('team1/mood', currentMood.toString())
+      client.publish(topicMood, currentMood.toString())
     }
 
   function handleMoodometer (message) {
